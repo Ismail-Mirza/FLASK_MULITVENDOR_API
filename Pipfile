@@ -14,6 +14,7 @@ marshmallow = "*"
 flask-migrate = "*"
 flask-admin = "*"
 flask-mail = "*"
+flask-session = "*"
 
 [dev-packages]
 

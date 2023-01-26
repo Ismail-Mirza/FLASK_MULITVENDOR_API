@@ -16,3 +16,6 @@ MAIL_USERNAME = environ.get('MAIL_USERNAME')
 MAIL_PASSWORD = environ.get('MAIL_PASSWORD')
 SITE_NAME  = environ.get("MAIL_SENDER")
 # MAIL_DEBUG=environ.get("MAIL_DEBUG")
+
+SESSION_PERMANENT = False
+SESSION_TYPE = 'sqlalchemy'

@@ -1,18 +1,17 @@
-from os import environ
+
 from flask_mail import Message
 from src.extension import mail
-from datetime import timedelta
-from flask_jwt_extended import create_access_token
 from flask import render_template
+from src.helpers.gen_token import get_token
 from src.settings import SITE_NAME,MAIL_USERNAME
 
 
 def send_email(user, subject, template):
     """ Send email """
-    print(SITE_NAME)
-    token = create_access_token(identity=str(user.get("id")), expires_delta=timedelta(days=5))
+    token = get_token(user.get("id"))
     msg = Message(subject,
-                  sender=(SITE_NAME,MAIL_USERNAME), recipients=[user['email']])
+                  sender=(SITE_NAME,MAIL_USERNAME), recipients=[user.get('email')])
     msg.html = render_template(template, user=user, token=token)
 
     mail.send(msg)
+    return token
