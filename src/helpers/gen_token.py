@@ -3,7 +3,7 @@ from os import environ
 from itsdangerous import Serializer, SignatureExpired, URLSafeTimedSerializer
 import jwt
 from src.user.models import User
-from src.exceptions.responses import error_response
+from src.helpers.responses import error_response
 
 s = URLSafeTimedSerializer(environ.get('SECRET_KEY'))
 _email_secret = "email-confirm"

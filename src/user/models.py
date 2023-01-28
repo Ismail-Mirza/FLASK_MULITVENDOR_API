@@ -1,5 +1,5 @@
 from src.extension import db
-from src.models.base import BaseModel
+from src.helpers.models.base import BaseModel
 
 class User(BaseModel):
     """ User Model class """

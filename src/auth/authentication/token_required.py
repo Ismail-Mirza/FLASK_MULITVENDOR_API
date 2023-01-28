@@ -4,7 +4,7 @@ import os
 from functools import wraps
 import jwt
 from flask import request,jsonify
-from src.exceptions.responses import error_response
+from src.helpers.responses import error_response
 from src.user.models import User
 from src.extension import session
 

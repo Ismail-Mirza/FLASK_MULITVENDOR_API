@@ -15,8 +15,10 @@ flask-migrate = "*"
 flask-admin = "*"
 flask-mail = "*"
 flask-session = "*"
+azure-storage-blob = "*"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.9"

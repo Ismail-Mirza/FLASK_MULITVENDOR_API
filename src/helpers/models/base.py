@@ -1,6 +1,6 @@
 
 import datetime
-from ..extension import db
+from src.extension import db
 
 
 class BaseModel(db.Model):

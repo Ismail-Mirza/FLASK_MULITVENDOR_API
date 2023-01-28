@@ -1,4 +1,4 @@
-from src.models.base import BaseModel
+from src.helpers.models.base import BaseModel
 from src.extension import db
 
 class CartItem(BaseModel):

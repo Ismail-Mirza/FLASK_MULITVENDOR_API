@@ -1,5 +1,5 @@
 from marshmallow import fields
-from ...schema.base import BaseSchema
+from src.helpers.schema.base import BaseSchema
 
 
 class UserSchema(BaseSchema):

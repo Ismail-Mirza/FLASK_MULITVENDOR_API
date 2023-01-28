@@ -2,7 +2,7 @@ from flask_restx import Resource,Namespace
 from src.auth.authentication.permission_required import permission_required
 from src.helpers import remove_space
 from src.helpers.gen_token import verify_token
-from src.exceptions.responses import success_response, error_response
+from src.helpers.responses import success_response, error_response
 from src.auth.authentication.token_required import token_required
 from flask import request
 from flask_jwt_extended import get_jwt_identity
@@ -111,5 +111,30 @@ class allUserView(Resource):
     @token_required
     @permission_required
     def get(self):
+        "get all users"
         user_schema =  UserSchema(many=True)
         return user_schema.dump(User.query.all())
+@api.route('all-users/buyer/')
+class allUserBuyerView(Resource):
+    @token_required
+    @permission_required
+    def get(self):
+        "get all buyer"
+        user_schema =  UserSchema(many=True)
+        return user_schema.dump(User.query.filter_by(is_seller=False))
+@api.route('all-users/seller/')
+class allUserSellerView(Resource):
+    @token_required
+    @permission_required
+    def get(self):
+        "get all seller"
+        user_schema =  UserSchema(many=True)
+        return user_schema.dump(User.query.filter_by(is_seller=True))
+@api.route('all-users/admin/')
+class allUserAdminView(Resource):
+    @token_required
+    @permission_required
+    def get(self):
+        "get all admin"
+        user_schema =  UserSchema(many=True)
+        return user_schema.dump(User.query.filter_by(is_admin=True))
