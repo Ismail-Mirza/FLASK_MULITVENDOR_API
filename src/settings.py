@@ -19,3 +19,4 @@ SITE_NAME  = environ.get("MAIL_SENDER")
 
 SESSION_PERMANENT = False
 SESSION_TYPE = 'sqlalchemy'
+EMAIL_VERIFICATION = environ.get("EMAIL_VERIFICATION")

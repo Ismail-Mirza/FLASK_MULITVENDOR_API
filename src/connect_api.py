@@ -19,7 +19,7 @@ api = Api(
     title='Flask API',
     description='Mulit Vendor Api',
     security='Token Auth',
-    # doc='/documentations/',
+    # doc='documentations/',
     authorizations=authorizations
 )
 

@@ -53,7 +53,7 @@ class LoginView(Resource):
                   
             
             else:
-                send_email(user_data, 'Confirmation Email', 'confirmation_email.html')
+                # send_email(user_data, 'Confirmation Email', 'confirmation_email.html')
                 error_response['message'] = "Account is not activated. Activation link is send to your mail."
                 return error_response,203
 
@@ -117,7 +117,7 @@ class SignupBuyerView(Resource):
             UserValidators.validate(data)
             data = remove_space(data)
             data['password'] = bcrypt.generate_password_hash(
-                data.get("password"))
+                data.get("password")).decode('utf-8')
             new_user = User(**data)
             new_user.save()
             user_schema = UserSchema()
@@ -145,7 +145,7 @@ class SignupSellerView(Resource):
             UserValidators.validate(data)
             data = remove_space(data)
             data['password'] = bcrypt.generate_password_hash(
-                data.get("password"))
+                data.get("password")).decode('utf-8')
             new_user = User(**data)
             new_user.save_seller()
             user_schema = UserSchema()

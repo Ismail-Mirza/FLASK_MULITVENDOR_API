@@ -16,6 +16,7 @@ flask-admin = "*"
 flask-mail = "*"
 flask-session = "*"
 azure-storage-blob = "*"
+psycopg2 = "*"
 
 [dev-packages]
 autopep8 = "*"
