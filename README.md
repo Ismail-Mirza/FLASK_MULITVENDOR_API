@@ -1,4 +1,4 @@
-# API Webserver Project
+# Flask MultiVendor Api Project
 
 ## **How To Run the Application**
 ------------
